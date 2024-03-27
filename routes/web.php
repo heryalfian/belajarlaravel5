@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/template', function () {
+    return view('template');
+});
+
+Route::get('/table', function () {
+    $data = ['baju', 'celana', 'sepatu'];
+    return view('table', compact('data'));
+});
+
+Route::resource('Siswa', SiswaController::class);
