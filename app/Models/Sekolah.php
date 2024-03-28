@@ -13,6 +13,6 @@ class Sekolah extends Model
 
     function siswa()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->hasMany(Siswa::class);
     }
 }

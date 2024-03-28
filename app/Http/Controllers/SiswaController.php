@@ -39,9 +39,9 @@ class SiswaController extends Controller
             'nis' => 'required | integer',
             'nama' => 'required',
             'alamat' => 'required | string',
-            'sekolah' => 'required| integer'
+            'sekolah_id' => 'required| integer',
         ]);
-
+        // dd('siap tambah');
         Siswa::create($validator);
         return redirect('Siswa')->with('success', 'Data Berhasil Diinput');
     }
@@ -61,7 +61,8 @@ class SiswaController extends Controller
     {
         // dd('ini edit');
         $data = Siswa::find($id);
-        return view('edit', compact('data'));
+        $sekolah = Sekolah::all();
+        return view('edit', compact('data', 'sekolah'));
     }
 
     /**
@@ -74,7 +75,7 @@ class SiswaController extends Controller
             'nis' => 'required | integer',
             'nama' => 'required',
             'alamat' => 'required | string',
-            'sekolah' => 'required| integer'
+            'sekolah_id' => 'required| integer',
         ]);
         // dd($request);
         Siswa::find($id)->update($validator);

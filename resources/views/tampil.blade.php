@@ -8,6 +8,7 @@
                 <th scope="col">Nis</th>
                 <th scope="col">Nama Siswa</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">Sekolah</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                     <td>{{ $item->nis }}</td>
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->sekolah->nama_sekolah }}</td>
                     <td><a class="btn btn-warning " href="{{ route('Siswa.edit', $item->id) }}">Edit</a>
                         <form action="{{ route('Siswa.destroy', $item->id) }}" method="POST" class="d-inline-block">
                             @csrf

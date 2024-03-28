@@ -14,12 +14,18 @@
             <input type="text" class="form-control" @error('nama') is-invalid @enderror name="nama"
                 value="{{ $data->nama }}">
         </div>
-        <div class="form-group">
+        <div class="form-group mb-4">
             <label class="form-label">Alamat</label>
             <input type="text" class="form-control" @error('alamat') is-invalid @enderror name="alamat"
                 value="{{ $data->alamat }}">
         </div>
-        <br>
+        <select class="form-select mb-4" aria-label="Default select example" name="sekolah_id">
+            <option selected>Pilih Sekolah</option>
+            @foreach ($sekolah as $item)
+                <option value="{{ $item->id }}" @selected($data->sekolah_id == $item->id)>{{ $item->nama_sekolah }}</option>
+            @endforeach
+        </select>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
