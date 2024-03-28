@@ -18,7 +18,15 @@
             <input type="text" class="form-control" @error('alamat') is-invalid @enderror name="alamat"
                 value="{{ old('alamat') }}">
         </div>
-        <br>
+        <select class="form-select mb-4" aria-label="Default select example">
+            <option selected>Pilih Sekolah</option>
+            @foreach ($sekolah as $item)
+                <option value="{{ $item->id }}">{{ $item->sekolah }}</option>
+            @endforeach
+
+
+        </select>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
