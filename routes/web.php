@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SiswaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::get('/table', function () {
     return view('table', compact('data'));
 });
 
-Route::resource('Siswa', SiswaController::class);
+Route::resource('Siswa', SiswaController::class)->middleware(['auth', 'cekstatus']);
 
 Auth::routes();
 
